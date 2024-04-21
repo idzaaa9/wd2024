@@ -168,7 +168,8 @@ nav .menu {
   text-align: center;
 }
 
-.button {
+.button,
+.delete-button {
   border: none;
   font-size: 2em;
   color: var(--cream);
@@ -178,6 +179,11 @@ nav .menu {
   margin: 10px;
   cursor: pointer;
   transition: all 0.5s ease;
+}
+
+.delete-button {
+  color: var(--smoky-black);
+  background-color: red;
 }
 
 .button:hover {
