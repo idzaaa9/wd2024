@@ -211,6 +211,7 @@ nav .menu {
   justify-content: flex-start;
   align-items: center;
   padding-top: 5svh;
+  padding-bottom: 2svh;
   background-color: var(--background);
 }
 
@@ -252,6 +253,10 @@ nav .menu {
 
 .field-name {
   font-weight: bolder;
+}
+
+.field-value {
+  height: 1.3rem;
 }
 
 .image-container {
