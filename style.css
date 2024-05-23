@@ -309,3 +309,44 @@ nav .menu {
 .slider-nav a:hover{
   opacity: 1;
 }
+
+.user-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 1.5rem;
+  min-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px 5px 0 0;
+  overflow:hidden;
+}
+
+.user-table thead tr {
+  background-color: var(--cream);
+  text-align: left;
+  font-weight: bold;
+}
+
+.user-table tbody tr td,
+.user-table thead tr th {
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+}
+
+.user-table td,
+.user-table tr {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.user-table tbody tr {
+  border-bottom: 1px solid var(--black);
+}
+
+.user-table tbody tr:nth-of-type(even) {
+  background-color: var(--darker);
+}
+
+.user-table tbody tr:last-child {
+  border-bottom: 2px solid var(--cream);
+}
