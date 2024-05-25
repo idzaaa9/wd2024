@@ -61,27 +61,21 @@ function createCard (cardData, id) {
   const buttons = document.createElement('div');
     buttons.classList.add('buttons');
 
-    const editButtonContainer = document.createElement('a');
-      editButtonContainer.href = 'editOrganisation.html/' + id;
-    
-      const editButton = document.createElement('button');
+    const editButton = document.createElement('button');
         editButton.classList.add('button');
         editButton.textContent = 'Edit';
+        editButton.onclick = function () {
+          window.location.href = 'editOrganisation.html?id=' + id;
+        }
 
-    editButtonContainer.appendChild(editButton);
- 
-  buttons.appendChild(editButtonContainer);
-    
-    const deleteButtonContainer = document.createElement('a');
-      deleteButtonContainer.href = '#' // TODO: implement deletion
+  buttons.appendChild(editButton);
 
       const deleteButton = document.createElement('button');
         deleteButton.classList.add('delete-button');
         deleteButton.textContent = 'Delete';
+        deleteButton.onclick = function () {deleteOrg(id); };    
 
-    deleteButtonContainer.appendChild(deleteButton);
-
-  buttons.appendChild(deleteButtonContainer);
+  buttons.appendChild(deleteButton);
 
   cardContent.appendChild(title);
   cardContent.appendChild(description);
@@ -93,3 +87,22 @@ function createCard (cardData, id) {
   return card;
 }
 });
+
+function deleteOrg(orgId) {
+
+  var request = new XMLHttpRequest();
+
+  request.open('DELETE', firebaseUrl + '/organizatoriFestivala/' + orgId + '.json', true);
+
+  request.onreadystatechange = function () {
+    if (this.readyState == 4) {
+      if (this.status != 200) {
+        alert('Error while deleting organiser');
+        return;
+      }
+      alert('User deleted organiser');
+    }
+  }
+
+  request.send();
+}
