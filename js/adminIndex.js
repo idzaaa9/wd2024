@@ -17,7 +17,6 @@ request.onreadystatechange = function () {
 
     for (var organiserId in responseData) {
       var organiser = responseData[organiserId];
-      console.log(organiser);
       container.appendChild(createCard(organiser, organiserId));
     }
 
