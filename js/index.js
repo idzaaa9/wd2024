@@ -21,12 +21,20 @@ request.onreadystatechange = function () {
     }
 
   }
+
+  
 };
 
 request.open('GET', firebaseUrl + '/organizatoriFestivala.json');
 request.send();
 
-function createCard (cardData, id) {
+document.getElementById("loginButton").addEventListener("click", function(event) {
+      event.preventDefault(); // Prevent default link behavior
+      // Open a new window with specific dimensions
+      var newWindow = window.open("login.html", "_blank", "width=400,height=300");
+    });
+
+    function createCard (cardData, id) {
   const card = document.createElement('div');
     card.classList.add('card');
 
@@ -58,18 +66,16 @@ function createCard (cardData, id) {
       description.classList.add('description');
       description.textContent = 'opis organizacije';
 
-    const buttonContainer = document.createElement('a');
-      buttonContainer.href = 'organisation.html/' + id;
-    
-      const button = document.createElement('button');
-        button.classList.add('button');
-        button.textContent = 'Read more!';
-
-    buttonContainer.appendChild(button);
+    const button = document.createElement('button');
+      button.classList.add('button');
+      button.textContent = 'Read more!';
+      button.onclick = function () {
+        window.location.href = 'organisation.html?id=' + id;
+      }
   
   cardContent.appendChild(title);
   cardContent.appendChild(description);
-  cardContent.appendChild(buttonContainer);
+  cardContent.appendChild(button);
 
   card.appendChild(imageContent);
   card.appendChild(cardContent);

@@ -89,20 +89,23 @@ function createCard (cardData, id) {
 });
 
 function deleteOrg(orgId) {
+  if (confirm('Are you sure you want to delete this organiser?')) {
+    var request = new XMLHttpRequest();
 
-  var request = new XMLHttpRequest();
+    request.open('DELETE', firebaseUrl + '/organizatoriFestivala/' + orgId + '.json', true);
 
-  request.open('DELETE', firebaseUrl + '/organizatoriFestivala/' + orgId + '.json', true);
-
-  request.onreadystatechange = function () {
-    if (this.readyState == 4) {
-      if (this.status != 200) {
-        alert('Error while deleting organiser');
-        return;
+    request.onreadystatechange = function () {
+      if (this.readyState == 4) {
+        if (this.status != 200) {
+          alert('Error while deleting organiser');
+          return;
+        }
+        alert('User deleted organiser');
       }
-      alert('User deleted organiser');
     }
-  }
 
-  request.send();
+    request.send();
+  } else {
+    alert('Deletion canceled');
+  }
 }

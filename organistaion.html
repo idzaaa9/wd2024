@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exit organizacija</title>
+  <script src="js/organisation.js"></script>
   <link rel="stylesheet" href="style.css" >
 </head>
 <body>
@@ -14,104 +14,28 @@
         <a href="index.html">Festos</a>
       </div>
       <ul>
-        <li><a href="#">Log in</a></li>
+        <li><a id="loginButton">Log in</a></li>
         <li><a href="adminIndex.html">Admin</a></li>
       </ul>
     </div>
   </nav>
 
+  <div id="loginPopup" class="popup">
+    <div class="popup-content">
+      <span class="close" onclick="closePopup()">&times;</span>
+      <h2>Login</h2>
+      <form>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <input type="submit" value="Login">
+      </form>
+    </div>
+  </div> 
+
   <!-- main section -->
-
-  <!-- image and title -->
-  <div class="organisation-header">
-    <img src="assets/exit.jpg"/>
-    <h1 class="header-small-title">Exit organizacija</h1>
-  </div>
-
-  <!-- basic information -->
-  <div class="organisation-info-container">
-    <p class="description">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse error dolorem minus nam saepe? Praesentium eveniet placeat illum sunt nulla, culpa ipsa inventore corporis facere, facilis blanditiis tenetur dolorum? Earum!
-      Sit est ipsa cumque atque perspiciatis corrupti voluptatum maiores libero, ipsum soluta deserunt voluptatibus natus possimus, earum doloremque. Deserunt possimus iusto alias temporibus cum! Distinctio enim cupiditate earum voluptate veritatis?
-      Fugiat dolores expedita officia. Repellendus labore officia recusandae officiis molestias voluptas provident culpa modi, ratione, suscipit consectetur? Dignissimos magnam aliquam doloribus, iusto perspiciatis nisi voluptatibus eos eveniet quaerat nesciunt quas.
-      Velit iusto recusandae quod excepturi. A cum ipsam repudiandae molestiae sapiente eveniet quis nesciunt assumenda consequatur perferendis. Hic, minus, adipisci facilis voluptate voluptates rem, omnis veritatis expedita quis inventore amet.
-      Culpa optio cumque magnam obcaecati voluptatem laborum autem beatae nostrum dicta expedita impedit non ipsum iure sapiente alias, quaerat ex ab modi sint adipisci fugiat repudiandae incidunt quod? Possimus, molestiae.
-    </p>
-    <div class="organisation-field" id="orgName">
-      <span class="field-name">Name: </span>
-      <span class="field-value">Exit organizacija </span>
-    </div>
-
-    <div class="organisation-field" id="orgAddress">
-      <span class="field-name">Address: </span>
-      <span class="field-value">Vase Pelagica 6, 21000 Novi Sad</span>
-    </div>
-
-    <div class="organisation-field" id="orgYearCreated">
-      <span class="field-name">Year of creation: </span>
-      <span class="field-value">2003. </span>
-    </div>
-
-    <div class="organisation-field" id="orgPhoneNumber">
-      <span class="field-name">Phone number: </span>
-      <span class="field-value">1234567890 </span>
-    </div>
-
-    <div class="organisation-field" id="orgEmail">
-      <span class="field-name">Email: </span>
-      <span class="field-value">organizacija@exit.rs </span>
-    </div>
-
-    <!-- festivals -->
-    <span class="organisation-field">Festivals: </span>
-    <div class="card-container">
-
-      <div class="card">
-
-        <div class="image-content">
-          <span class="overlay"></span>
-          <div class="card-image">
-            <img src="assets/exit.jpg" alt="" class="card-img">
-          </div>
-        </div>
-
-        <div class="card-content">
-          <h2 class="name">
-            Exit fest
-          </h2>
-          <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab error delectus sed perspiciatis quibusdam tempore sint quaerat tempora, quod pariatur, eveniet architecto vel! Error explicabo id sequi in iste corporis.
-          </p>
-          <a href="festival.html">
-          <button class="button">Read more!</button>
-          </a>
-        </div>
-      
-      </div>
-
-      <div class="card">
-
-        <div class="image-content">
-          <span class="overlay"></span>
-          <div class="card-image">
-            <img src="assets/seadance.jpg" alt="" class="card-img">
-          </div>
-        </div>
-
-        <div class="card-content">
-          <h2 class="name">
-            Sea dance
-          </h2>
-          <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab error delectus sed perspiciatis quibusdam tempore sint quaerat tempora, quod pariatur, eveniet architecto vel! Error explicabo id sequi in iste corporis.
-          </p>
-          <a href="festival.html">
-          <button class="button">Read more!</button>
-          </a>
-        </div>
-      
-      </div>
-
-    </div>
-  </div>
+  <div id="main"> </div>
 
 </body>
 </html>

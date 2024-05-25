@@ -67,25 +67,22 @@ function createRow (data, id) {
   row.appendChild(occupationTd);
 
   const editButtonTd = document.createElement('td');
-    const editButtonContainer = document.createElement('a');
-    editButtonContainer.href = "editUser.html/" + id;
     const editButton = document.createElement('button');
     editButton.classList.add('button');
     editButton.textContent = 'Edit';
-
-    editButtonContainer.appendChild(editButton);
-    editButtonTd.appendChild(editButtonContainer);
+    editButton.onclick = function () {
+      window.location.href = 'editUser.html?id=' + id;
+    }
+    editButtonTd.appendChild(editButton);
   row.appendChild(editButtonTd);
 
   const deleteButtonTd = document.createElement('td');
-    const deleteButtonContainer = document.createElement('a');
-    deleteButtonContainer.onclick = function () { deleteUser(id); }; 
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('delete-button');
     deleteButton.textContent = 'Delete';
+    deleteButton.onclick = function () { deleteUser(id); };
 
-    deleteButtonContainer.appendChild(deleteButton);
-    deleteButtonTd.appendChild(deleteButtonContainer);
+    deleteButtonTd.appendChild(deleteButton);
   row.appendChild(deleteButtonTd);
 
 
@@ -93,20 +90,23 @@ function createRow (data, id) {
 }
 
 function deleteUser(userId) {
+  if (confirm('Are you sure you want to delete this user?')) {
+    var request = new XMLHttpRequest();
 
-  var request = new XMLHttpRequest();
+    request.open('DELETE', firebaseUrl + '/korisnici/' + userId + '.json', true);
 
-  request.open('DELETE', firebaseUrl + '/korisnici/' + userId + '.json', true);
-
-  request.onreadystatechange = function () {
-    if (this.readyState == 4) {
-      if (this.status != 200) {
-        alert('Error while deleting user');
-        return;
+    request.onreadystatechange = function () {
+      if (this.readyState == 4) {
+        if (this.status != 200) {
+          alert('Error while deleting user');
+          return;
+        }
+        alert('User deleted successfully');
       }
-      alert('User deleted successfully');
     }
-  }
 
-  request.send();
+    request.send();
+  } else {
+    alert('Deletion canceled');
+  }
 }
