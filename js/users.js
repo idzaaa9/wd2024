@@ -79,7 +79,7 @@ function createRow (data, id) {
 
   const deleteButtonTd = document.createElement('td');
     const deleteButtonContainer = document.createElement('a');
-    deleteButtonContainer.onclick = deleteUser(id); // TODO: implement deletion 
+    deleteButtonContainer.onclick = function () { deleteUser(id); }; 
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('delete-button');
     deleteButton.textContent = 'Delete';
@@ -96,7 +96,7 @@ function deleteUser(userId) {
 
   var request = new XMLHttpRequest();
 
-  request.open('DELETE', firebaseUrl + /korisnici/ + userId + '.json', true);
+  request.open('DELETE', firebaseUrl + '/korisnici/' + userId + '.json', true);
 
   request.onreadystatechange = function () {
     if (this.readyState == 4) {
